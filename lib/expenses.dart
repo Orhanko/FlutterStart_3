@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pocetak3/exprenses_list.dart';
+import 'package:pocetak3/models/expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -9,8 +11,29 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  final List<Expense> listOfExpense = [
+    Expense(
+      title: 'Flutter Course',
+      amount: 19.9,
+      date: DateTime.now(),
+      category: Category.work,
+    ),
+    Expense(
+      title: 'Italy vacay',
+      amount: 19.9,
+      date: DateTime.now(),
+      category: Category.travel,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
-    return Text('Expenses');
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('Chart Placeholder...'),
+          Expanded(child: ExpensesList(list: listOfExpense)),
+        ],
+      ),
+    );
   }
 }
