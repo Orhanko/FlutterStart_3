@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocetak3/exprenses_list.dart';
 import 'package:pocetak3/models/expense.dart';
+import 'package:pocetak3/new_expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -25,12 +26,19 @@ class _ExpensesState extends State<Expenses> {
       category: Category.travel,
     ),
   ];
+
+  void _showModalScreen() {
+    showModalBottomSheet(context: context, builder: (item) => NewExpense());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Expense Tracker"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+        actions: [
+          IconButton(onPressed: _showModalScreen, icon: Icon(Icons.add)),
+        ],
       ),
       body: Column(
         children: [
