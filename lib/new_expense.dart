@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pocetak3/expenses.dart';
 import 'package:pocetak3/models/expense.dart';
 
 class NewExpense extends StatefulWidget {
-  const NewExpense({super.key});
+  final void Function(Expense) dodavanje;
+  const NewExpense(this.dodavanje, {super.key});
   @override
   State<NewExpense> createState() {
     return _NewExpenseState();
@@ -34,6 +36,40 @@ class _NewExpenseState extends State<NewExpense> {
     setState(() {
       pickedDate = datePicker;
     });
+  }
+
+  void saveExpenseData() {
+    final amountConverted = double.tryParse(amountController.text);
+    final amountInvalid = amountConverted == null || amountConverted <= 0;
+    if (titleController.text.trim().isEmpty ||
+        pickedDate == null ||
+        amountInvalid) {
+      showDialog(
+        context: context,
+        builder:
+            (ctx) => AlertDialog(
+              title: Text("Title alerta"),
+              content: Text("Content alerta"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(ctx);
+                  },
+                  child: Text("Ok"),
+                ),
+              ],
+            ),
+      );
+      return;
+    }
+    final proba = Expense(
+      amount: amountConverted,
+      title: titleController.text,
+      date: pickedDate!,
+      category: selectedCategory,
+    );
+    widget.dodavanje(proba);
+    Navigator.pop(context);
   }
 
   @override
@@ -106,11 +142,8 @@ class _NewExpenseState extends State<NewExpense> {
                 ),
                 Spacer(),
                 ElevatedButton(
-                  onPressed: () {
-                    print("Ovo je proba za title: ${titleController.text}");
-                    print("Ovo je proba za amount: ${amountController.text}");
-                  },
-                  child: Text("Save title"),
+                  onPressed: saveExpenseData,
+                  child: Text("Save Expense"),
                 ),
                 Spacer(),
                 ElevatedButton(
@@ -128,40 +161,3 @@ class _NewExpenseState extends State<NewExpense> {
     );
   }
 }
-// DropdownButton(
-                //   value: selectedCategory,
-                //   items:
-                //       Category.values
-                //           .map(
-                //             (category) => DropdownMenuItem(
-                //               value: category,
-                //               child: Text(category.name.toUpperCase()),
-                //             ),
-                //           )
-                //           .toList(),
-                //   onChanged: (value) {
-                //     if (value == null) {
-                //       return;
-                //     }
-                //     setState(() {
-                //       selectedCategory = value;
-                //     });
-                //     ;
-                //   },
-                // ),
-
-  //               void presentDatePicker() async {
-  //   final now = DateTime.now();
-  //   final firstDate = DateTime(now.year - 1, now.month, now.day);
-  //   final pickedDate = await showDatePicker(
-  //     context: context,
-  //     initialDate: now,
-  //     firstDate: firstDate,
-  //     lastDate: now,
-  //   );
-  //   setState(() {
-  //     selectedDate = pickedDate;
-  //   });
-  // }
-// DateTime? selectedDate;
-//   Category selectedCategory = Category.leisure;
