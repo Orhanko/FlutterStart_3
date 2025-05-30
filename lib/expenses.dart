@@ -88,7 +88,7 @@ class _ExpensesState extends State<Expenses> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(129, 255, 153, 0),
+                  color: Theme.of(context).cardTheme.color,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
