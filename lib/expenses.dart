@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pocetak3/exprenses_list.dart';
 import 'package:pocetak3/models/expense.dart';
@@ -35,9 +37,16 @@ class _ExpensesState extends State<Expenses> {
 
   void _showModalScreen() {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       builder: (item) => NewExpense(addExpense),
     );
+  }
+
+  void removeListItem(Expense expense) {
+    setState(() {
+      listOfExpense.remove(expense);
+    });
   }
 
   @override
@@ -51,8 +60,29 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          Text('Chart Placeholder...'),
-          Expanded(child: ExpensesList(list: listOfExpense)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(129, 255, 153, 0),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 100),
+                  child: Text(
+                    'Chart Placeholder...',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ExpensesList(list: listOfExpense, onRemove: removeListItem),
+          ),
         ],
       ),
     );
