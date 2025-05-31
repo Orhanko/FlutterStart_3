@@ -16,7 +16,7 @@ class ExpensesList extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Theme.of(context).colorScheme.error,
+                color: Colors.red,
               ),
             ),
             key: ValueKey(list[index]),

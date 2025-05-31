@@ -19,11 +19,18 @@ void main() {
           color: kDarkColorScheme.inversePrimary,
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: kDarkColorScheme.onTertiaryContainer,
+          ),
+          bodyLarge: TextStyle(color: Colors.white),
+        ),
       ),
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,
         appBarTheme: AppBarTheme().copyWith(
-          backgroundColor: kColorScheme.onSecondaryContainer,
+          backgroundColor: kColorScheme.onPrimaryFixedVariant,
           foregroundColor: kColorScheme.primaryContainer,
         ),
         cardTheme: CardTheme().copyWith(
@@ -40,6 +47,7 @@ void main() {
             fontWeight: FontWeight.bold,
             color: kColorScheme.onTertiaryContainer,
           ),
+          bodyLarge: TextStyle(color: Colors.white),
         ),
         scaffoldBackgroundColor: kColorScheme.secondaryFixedDim,
       ),
