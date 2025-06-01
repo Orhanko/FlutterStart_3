@@ -47,7 +47,7 @@ void main() {
             fontWeight: FontWeight.bold,
             color: kColorScheme.onTertiaryContainer,
           ),
-          bodyLarge: TextStyle(color: Colors.white),
+          bodyLarge: TextStyle(color: Colors.black),
         ),
         scaffoldBackgroundColor: kColorScheme.secondaryFixedDim,
       ),
