@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pocetak3/chart.dart';
 import 'package:pocetak3/exprenses_list.dart';
 import 'package:pocetak3/models/expense.dart';
 import 'package:pocetak3/new_expense.dart';
@@ -82,26 +83,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).cardTheme.color,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 100),
-                  child: Text(
-                    'Chart Placeholder...',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 30),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          Chart(expenses: listOfExpense),
           Expanded(child: mainContent),
         ],
       ),
