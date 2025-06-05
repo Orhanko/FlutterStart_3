@@ -9,8 +9,8 @@ Feel free to share suggestions and feedback!
 
 ### App preview
 
-<img src="screenshots/Image1.PNG" alt="Image1" width="40%" height="40%"> 
+<img src="screenshots/Image1.png" alt="Image1" width="40%" height="40%"> 
 
-<img src="screenshots/Image2.PNG" alt="Image2" width="40%" height="40%"> 
+<img src="screenshots/Image2.png" alt="Image2" width="40%" height="40%"> 
 
-<img src="screenshots/Image3.PNG" alt="Image3" width="40%" height="40%">
+<img src="screenshots/Image3.png" alt="Image3" width="40%" height="40%">
