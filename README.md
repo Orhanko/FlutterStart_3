@@ -5,4 +5,12 @@ After gaining extensive experience in building iOS applications with Swift and S
 
 The goal of this project is to explore the Flutter framework, build foundational apps, and adopt best practices for multi-platform mobile application development.  
 
-Feel free to share suggestions and feedback!  
+Feel free to share suggestions and feedback!
+
+### App preview
+
+<img src="screenshots/Image1.PNG" alt="Image1" width="40%" height="40%"> 
+
+<img src="screenshots/Image2.PNG" alt="Image2" width="40%" height="40%"> 
+
+<img src="screenshots/Image3.PNG" alt="Image3" width="40%" height="40%">
